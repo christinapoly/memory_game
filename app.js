@@ -1,52 +1,52 @@
 const cardArray = [
   {
-    name: 'fries',
-    img: 'img/fries.png'
+    name: 'fox',
+    img: 'img/fox.jpg'
   },
   {
-    name: 'cheeseburger',
-    img: 'img/cheeseburger.png'
+    name: 'bird',
+    img: 'img/bird.jpg'
   },
   {
-    name: 'hotdog',
-    img: 'img/hotdog.png'
+    name: 'deer',
+    img: 'img/deer.jpg'
   },
   {
-    name: 'ice-cream',
-    img: 'img/ice-cream.png'
+    name: 'rabbit',
+    img: 'img/rabbit.jpg'
   },
   {
-    name: 'milkshake',
-    img: 'img/milkshake.png'
+    name: 'raccoon',
+    img: 'img/raccoon.jpg'
   },
   {
-    name: 'pizza',
-    img: 'img/pizza.png'
+    name: 'tiger',
+    img: 'img/tiger.jpg'
   },
   {
-    name: 'fries',
-    img: 'img/fries.png'
+    name: 'fox',
+    img: 'img/fox.jpg'
   },
   {
-    name: 'cheeseburger',
-    img: 'img/cheeseburger.png'
+    name: 'bird',
+    img: 'img/bird.jpg'
   },
   {
-    name: 'hotdog',
-    img: 'img/hotdog.png'
+    name: 'deer',
+    img: 'img/deer.jpg'
   },
   {
-    name: 'ice-cream',
-    img: 'img/ice-cream.png'
+    name: 'rabbit',
+    img: 'img/rabbit.jpg'
   },
   {
-    name: 'milkshake',
-    img: 'img/milkshake.png'
+    name: 'raccoon',
+    img: 'img/raccoon.jpg'
   },
   {
-    name: 'pizza',
-    img: 'img/pizza.png'
-  },
+    name: 'tiger',
+    img: 'img/tiger.jpg'
+  } 
 ]
 
 
@@ -66,7 +66,7 @@ const cardsWon = [];
 function createBoard() {
   for (let i = 0; i < cardArray.length; i++) {
     const card = document.createElement('img'); 
-    card.setAttribute('src', 'img/blank.png');
+    card.setAttribute('src', 'img/pattern.png');
     card.setAttribute('data-id', i);
     card.addEventListener('click', flipCard);
     gridDisplay.append(card); //add the images in the div
@@ -84,24 +84,22 @@ function checkMatch() {
   const optionTwoId = cardsChosenIds[1];
  
     if (optionOneId == optionTwoId) {
-      //make the chosen cards white
-      cards[optionOneId].setAttribute('src','img/blank.png');
-      cards[optionTwoId].setAttribute('src','img/blank.png');
-      alert('You have clicked the same image!');
+      //picked the same img
+      cards[optionOneId].setAttribute('src','img/pattern.png');
+      cards[optionTwoId].setAttribute('src','img/pattern.png');
     }
     else if (cardsChosen[0] === cardsChosen[1]) {
-      alert("You found a match!");
-      //make the chosen cards white
-      cards[optionOneId].setAttribute('src','img/white.png');
-      cards[optionTwoId].setAttribute('src','img/white.png');
+      //found a match - make the chosen cards white
+      cards[optionOneId].setAttribute('src','img/white.jpg');
+      cards[optionTwoId].setAttribute('src','img/white.jpg');
       //make them not clickable
       cards[optionOneId].removeEventListener('click', flipCard);
       cards[optionTwoId].removeEventListener('click', flipCard);
       cardsWon.push(cardsChosen);
     } else {
-      cards[optionOneId].setAttribute('src','img/blank.png');
-      cards[optionTwoId].setAttribute('src','img/blank.png');
-      alert('Try again!');
+      //try again
+      cards[optionOneId].setAttribute('src','img/pattern.png');
+      cards[optionTwoId].setAttribute('src','img/pattern.png');
     }
     //start the process again
     cardsChosen = [];
@@ -109,7 +107,7 @@ function checkMatch() {
     resultDisplay.innerHTML = cardsWon.length;
     //when you find all pairs
     if (cardsWon.length === (cardArray.length/2)) {
-      resultDisplay.innerHTML = 'Congratulations! You found them all!'
+      resultDisplay.innerHTML = 'Congratulations! Refresh to play again.';
     }
 }
 

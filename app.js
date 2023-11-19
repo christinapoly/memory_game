@@ -107,7 +107,7 @@ function checkMatch() {
     resultDisplay.innerHTML = cardsWon.length;
     //when you find all pairs
     if (cardsWon.length === (cardArray.length/2)) {
-      resultDisplay.innerHTML = 'Congratulations! Refresh to play again.';
+      resultDisplay.innerHTML = '6/6! <a href="index.html">Play again</a>';
     }
 }
 
